@@ -45,8 +45,6 @@
 					<archive>
 						<manifest>
 							<!--指定main入口 -->
-							com.kayakwise.jportmap
-							com.kayakwise.jportmap
 							<mainClass>com.kayakwise.jportmap.PortMap</mainClass>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
