@@ -1,4 +1,4 @@
-package com.kayawise.jportmap;
+package com.kayakwise.jportmap;
 
 import java.io.InputStream;
 
@@ -8,28 +8,32 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.xsocket.connection.Server;
 
 public class PortMap {
-	static protected Log log = LogFactory.getLog(PortMap.class);
-	static ObjectMapper mapper = new ObjectMapper();
-	
+	static protected Log	log		= LogFactory.getLog(PortMap.class);
+	static ObjectMapper		mapper	= new ObjectMapper();
+
 	static void init() throws Exception {
 		InputStream is = null;
-		try{
+		try {
 			is = In.class.getResourceAsStream("/conf/portmap.conf");
 			Rule[] rules = (Rule[]) mapper.readValue(is, Rule[].class);
-			for( int i = 0; i < rules.length; i ++ ) {
+			for (int i = 0; i < rules.length; i++) {
 				Rule rule = rules[i];
 				In router = new In(rule);
 				Server srv = new Server(rule.inAddr, rule.inPort, router);
-				log.info("listen on " + rule.inAddr +":" + rule.inPort + " out " + rule.outAddr +":" + rule.outPort);
+				log.info("listen on " + rule.inAddr + ":" + rule.inPort + " out " + rule.outAddr + ":" + rule.outPort);
 				srv.start();
 			}
-			log.info("all started." );
+			log.info("all started.");
 		} finally {
 			is.close();
-		}		
+		}
 	}
-	public static void main(String args[] ) throws Exception {
-		
-		init();
+
+	public static void main(String args[]) {
+		try {
+			init();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

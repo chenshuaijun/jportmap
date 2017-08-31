@@ -1,4 +1,4 @@
-package com.kayawise.jportmap;
+package com.kayakwise.jportmap;
 
 
 
