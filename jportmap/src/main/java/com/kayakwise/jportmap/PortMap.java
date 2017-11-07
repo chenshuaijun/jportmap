@@ -20,7 +20,8 @@ public class PortMap {
 				Rule rule = rules[i];
 				In router = new In(rule);
 				Server srv = new Server(rule.inAddr, rule.inPort, router);
-				log.info("listen on " + rule.inAddr + ":" + rule.inPort + " out " + rule.outAddr + ":" + rule.outPort);
+				log.info("listen on " + rule.inAddr + ":" + rule.inPort + " out " + rule.outAddr + ":" + rule.outPort
+						+ " : " + rule.remark);
 				srv.start();
 			}
 			log.info("all started.");

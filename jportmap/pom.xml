@@ -35,7 +35,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>jPortMap</finalName>
+		<finalName>jportmap</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
