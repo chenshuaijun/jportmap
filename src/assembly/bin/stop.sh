@@ -1,0 +1,1 @@
+kill `ps -ef|grep jportmap|grep java|grep -v grep|awk '{print $2}'`
